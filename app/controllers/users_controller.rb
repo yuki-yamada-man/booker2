@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   def index
+    @user=User.all
   end
 
   def show
   end
 
-  def index
+  def edit
   end
 
   def update
