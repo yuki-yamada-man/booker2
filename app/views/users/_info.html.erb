@@ -1,16 +1,26 @@
 
+        <div class "col-md-3">
+            <h2>User info</h2>
+            <%=attachment_image_tag @user :profile_image, :fill,60,60,fallback:"no_image.jpg" %>
+            <table class="table">
+                <tbody>
+                    <tr></tr>
+                    <tr>name</tr>
+                    <tr><%=@user.name%></tr>
+                    <tr>introduction</tr>
+                    <tr><%=@user.introduction%></tr>
+                </tbody>
+            </table>
+            <div class="row">
+                <a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_4464" href="/users/4464/edit"></a>
+            </div>
+            <h2>New Book</h2>
+            <%= form_with model: @book, local:true do |f| %>
+            <h4>Title</h4>
+            <%=f.text_field:title%>
+            <h4>Opinion</h4>
+            <%=f.text_area:opinion%>
+            <%=f.submit"Create Book"%>
+        </div>
 
 
-
-
-
-
-
-
-<h2>New Book</h2>
-<%= form_with model: @book, local:true do |f| %>
-<h4>Title</h4>
-<%=f.text_field:title%>
-<h4>Opinion</h4>
-<%=f.text_area:opinion%>
-<%=f.submit"Create Book"%>
