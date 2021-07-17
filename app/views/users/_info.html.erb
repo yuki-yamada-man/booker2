@@ -15,6 +15,12 @@
                 <a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_4464" href="/users/4464/edit"></a>
             </div>
             <h2>New Book</h2>
+            <% if @book.errors.any? %>
+             <%= @book.errors.count %>件のエラーが発生しました
+             <% @post_image.errors.full_messages.each do |message| %>
+               <%= message %>
+             <% end %>
+            <% end %>
             <%= form_with model: @book, local:true do |f| %>
             <h4>Title</h4>
             <%=f.text_field:title%>
