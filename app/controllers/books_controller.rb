@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   def new
     @book = Book.new
-    
+
   end
 
   def create
@@ -45,13 +45,13 @@ class BooksController < ApplicationController
     book.destroy
     redirect_to book_path
   end
-  
-  
-  preivate
-  
+
+
+  private
+
   def book_params
     params.require(:book).permit(:title,:body)
   end
-    
+
 
 end

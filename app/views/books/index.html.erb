@@ -1,4 +1,5 @@
  <div class="row">
+  <%= render user/info,users:@users%>
   <div class="col-md-8 offset-md-1">
     <h2>Book</h2>
     <% if @book.errors.any? %>
@@ -25,14 +26,12 @@
           </td>
           <td>
             <%=link_to @book.title show_book_path(book.id) do%>
-            
-            
           </td>
           <td>
-            <%=@book.opinion%>
+            <%=@book.body%>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-</div>
+ </div>
