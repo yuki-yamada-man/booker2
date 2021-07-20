@@ -12,10 +12,11 @@
       <p>Name</p>
       <%=f.text_field:name%>
       <p>Image</p>
-      <%=f.attachment_image_tag user, :image%>
+      <%=f.attachment_field :profile_image%>
       <p>Introduction</p>
       <%=f.text_area:introduction%>
       <%=f.submit "Update User" %>
+      <% end %>
     </div>
   </div>
 </div>

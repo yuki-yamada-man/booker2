@@ -1,17 +1,22 @@
 class UsersController < ApplicationController
   def index
-    @user=User.all
+    @users = User.all
+    @user = current_user
+    @book_new = Book.new
+    
+
   end
 
   def show
-    @user=User.find(params[:id])
-    @books=@user.books.page(params[:page]).reverse_order
+    @user = User.find(params[:id])
+    @books = @user.books
+    @book_new =  Book.new
   end
 
   def edit
     @user=User.find(params[:id])
-    if user_id == current_user
-      render edit_user_path
+    if @user.id != current_user.id
+      redirect_to user_path(current_user.id)
     end
   end
 
@@ -23,11 +28,11 @@ class UsersController < ApplicationController
       render :user_path
     end
   end
-  
-  
+
+
   private
-  
+
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image_id)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 end

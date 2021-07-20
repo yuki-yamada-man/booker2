@@ -1,32 +1,33 @@
 
-       <div class "col-md-3">
+       <div class = "col-md-3">
             <h2>User info</h2>
-            <%=attachment_image_tag @user :profile_image, :fill,60,60,fallback:"no_image.jpg" %>
+            <%= attachment_image_tag user, :profile_image, :fill,100,100,fallback:"no.image.png",size:"100x100" %>
             <table class="table">
                 <tbody>
                     <tr></tr>
                     <tr>name</tr>
-                    <tr><%=@user.name%></tr>
+                    <tr><%= user.name%></tr>
                     <tr>introduction</tr>
-                    <tr><%=@user.introduction%></tr>
+                    <tr><%= user.introduction%></tr>
                 </tbody>
             </table>
             <div class="row">
-                <a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_4464" href="/users/4464/edit"></a>
+                <%= link_to "", edit_user_path(user), class:"btn btn-outline-secondary btn-block fas fa-user-cog edit_user_path" %>
             </div>
             <h2>New Book</h2>
-            <% if @book.errors.any? %>
-             <%= @book.errors.count %>件のエラーが発生しました
-             <% @.errors.full_messages.each do |message| %>
+            <% if book.errors.any? %>
+             <%= book.errors.count %>件のエラーが発生しました
+             <% book.errors.full_messages.each do |message| %>
                <%= message %>
              <% end %>
             <% end %>
-            <%= form_with model: @book, local:true do |f| %>
-            <h4>Title</h4>
-            <%=f.text_field:title%>
-            <h4>Opinion</h4>
-            <%=f.text_area:body%>
-            <%=f.submit"Create Book"%>
+            <%= form_with model: book, local:true do |f| %>
+             <h4>Title</h4>
+             <%=f.text_field:title%>
+             <h4>Opinion</h4>
+             <%=f.text_area:body%>
+             <%=f.submit"Create Book"%>
+            <% end %>
         </div>
 
 
