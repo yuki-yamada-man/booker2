@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  #before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def new
     @book = Book.new
@@ -57,6 +57,12 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title,:body)
   end
+
+  # def ensure_correct_user(book)
+  #   if book.user.id != current_user.id
+  #     redirect_to book_path(book.id)
+  #   end
+  # end
 
 
 end
